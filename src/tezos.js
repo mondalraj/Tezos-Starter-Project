@@ -1,50 +1,32 @@
 import { BeaconWallet } from '@taquito/beacon-wallet';
 import { TezosToolkit } from '@taquito/taquito';
 
+// Update CONTRACT_ADDRESS and other constants below as required
 const DAPP_NAME = "Tezos Developer Hub"
 const RPC_URL = "https://granadanet.smartpy.io";
 const NETWORK = "granadanet"
 const CONTRACT_ADDRESS = "KT1Ba56eW3NHGSeTQrTQHZGAyGCJJb2Sev6U"
 
-const Tezos = new TezosToolkit(RPC_URL);
+// Initialize TezosToolkit
+const Tezos = null;
 
-const wallet = new BeaconWallet({
-    name: DAPP_NAME,
-    preferredNetwork: NETWORK,
-    colorMode: 'light'
-});
+// Initialize BeaconWallet
+const wallet = null;
 
 // Setting the wallet as the wallet provider for Taquito.
-Tezos.setWalletProvider(wallet)
 
-const network = {
-    type: NETWORK,
-    rpcUrl: RPC_URL
-};
 
-const getActiveAccount = async () => {
-    const activeAccount = await wallet.client.getActiveAccount();
+// Create getActiveAccount function to connect with wallet
+const getActiveAccount = null;
 
-    // no active account, we need permissions first
-    if (!activeAccount) {
-        await wallet.requestPermissions({ network });
-        return getActiveAccount();
-    }
+// Create clearActiveAccount function to disconnect the wallet
+const clearActiveAccount = null;
 
-    return activeAccount;
-};
+// Fetching contract
+const getContract = null;
 
-const clearActiveAccount = async () => {
-  return wallet.client.clearActiveAccount();
-}
-
-const getContract = async () => {
-  return Tezos.wallet.at(CONTRACT_ADDRESS);
-}
-
-const getContractStorage = async () => {
-  return (await getContract()).storage();
-}
+// Fetching Contract's storage
+const getContractStorage = null;
 
 export {
     Tezos,

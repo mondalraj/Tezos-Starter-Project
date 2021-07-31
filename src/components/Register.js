@@ -21,13 +21,8 @@ function Register(){
     }
 
     async function handleClick() {
-        const contract = await getContract();
-        console.log(contract);
-        const op = await contract.methods.default(bio, name).send();
-        console.log(op);
-        await op.confirmation();
-        console.log("Registered!")
-        alert("Registered!")
+        // Register here
+        
     }
 
     return(

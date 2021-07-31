@@ -11,14 +11,8 @@ function Home(){
 
     useEffect(() => {
         async function fetchStorage() {
-            let storage = await getContractStorage();
-            console.log(storage);
-            let devs = storage.devs.valueMap;
-            let users = []
-            devs.forEach(dev => {
-                users.push(dev);
-            });
-            setUserData(users);
+            // Fetch data from contract
+            
         }
         fetchStorage();
         

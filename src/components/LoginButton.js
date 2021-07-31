@@ -6,14 +6,8 @@ function LoginButton(){
     const [walletConnected, setWalletConnected] = useState(false);
 
     const handleLogin = async () => {
-        if(!walletConnected) {
-            let activeAccount = await getActiveAccount();
-            setWalletConnected(true);
-            console.log(activeAccount);
-        }else {
-            await clearActiveAccount();
-            setWalletConnected(false);
-        }
+        // Login/Logout here
+        
     }
 
     return(
