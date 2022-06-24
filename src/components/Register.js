@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { getContract } from "../tezos";
+import { getContract, wallet } from "../tezos";
 
 import "../static/css/register.css";
 import Modal from "react-bootstrap/Modal";
@@ -21,10 +21,14 @@ function Register() {
 
   async function handleClick() {
     // Register here
-    const contract = await getContract();
-    const op = await contract.methods.default(bio, name).send();
-    await op.confirmation();
-    alert("Registered!");
+    if (await wallet.client.getActiveAccount()) {
+      const contract = await getContract();
+      const op = await contract.methods.default(bio, name).send();
+      await op.confirmation();
+      alert("Registered!");
+    } else {
+      alert("Please connect to a wallet first!");
+    }
   }
 
   return (
