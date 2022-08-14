@@ -2,10 +2,10 @@ import { BeaconWallet } from "@taquito/beacon-wallet";
 import { TezosToolkit } from "@taquito/taquito";
 
 // Update CONTRACT_ADDRESS and other constants below as required
-const DAPP_NAME = "Tezos Developer Hub";
+const DAPP_NAME = "InstaFund";
 // const RPC_URL = "https://ithacanet.smartpy.io";
-const RPC_URL = "https://ithacanet.ecadinfra.com/";
-const NETWORK = "ithacanet";
+const RPC_URL = "	https://jakartanet.ecadinfra.com/";
+const NETWORK = "jakartanet";
 const CONTRACT_ADDRESS = "KT1WoD6NEkYvdrc7LGa84Fq1fqg1ksvpENYA";
 
 // Initialize TezosToolkit
@@ -15,7 +15,7 @@ const Tezos = new TezosToolkit(RPC_URL);
 const options = {
   name: "Tezos Developer Hub",
   // iconUrl: "https://tezostaquito.io/img/favicon.svg",
-  preferredNetwork: "ithacanet",
+  preferredNetwork: "jakartanet",
   // eventHandlers: {
   //   PERMISSION_REQUEST_SUCCESS: {
   //     handler: async (data) => {
@@ -31,7 +31,7 @@ Tezos.setWalletProvider(wallet);
 
 // Create getActiveAccount function to connect with wallet
 const getActiveAccount = async () => {
-  await wallet.requestPermissions({ network: { type: "ithacanet" } });
+  await wallet.requestPermissions({ network: { type: "jakartanet" } });
   await wallet.getPKH();
 
   console.log(await wallet.client.getActiveAccount());
